@@ -1,16 +1,34 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Bell, User, Leaf } from 'lucide-react';
 import './index.css';
 import './App.css';
+import RegistrationPage from './components/RegistrationPage';
+import RestaurantForm from './components/RestaurantForm';
+import FoodBankForm from './components/FoodBankForm';
 
-const App = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    
+    const mockEmail = 'user@gmail.com';
+    const mockPassword = 'password';
+
+    if (email === mockEmail && password === mockPassword) {
+      navigate('/register'); 
+    } else {
+      alert('Invalid credentials. Please try again.');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
+      
       <nav className="border-b shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
@@ -41,9 +59,7 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Tagline */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-medium leading-relaxed">
             <span className="text-blue-900">"Delicious Meals</span>
@@ -55,9 +71,7 @@ const App = () => {
           </h1>
         </div>
 
-        {/* Content Grid */}
         <div className="grid md:grid-cols-2 gap-8 bg-blue-50 rounded-3xl p-8">
-          {/* Left Side - Images */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="rounded-3xl overflow-hidden">
@@ -84,7 +98,6 @@ const App = () => {
             </div>
           </div>
 
-          {/* Right Side - Login Form */}
           <div className="bg-white p-8 rounded-3xl shadow-lg">
             <div className="mb-8 flex items-center">
               <Leaf className="w-5 h-5 text-green-500 mr-1" />
@@ -94,7 +107,7 @@ const App = () => {
               </h2>
             </div>
 
-            <form className="space-y-6">
+            <form onSubmit={handleLogin} className="space-y-6">
               <div>
                 <input
                   type="email"
@@ -147,4 +160,53 @@ const App = () => {
   );
 };
 
-export default App;
+
+const ProtectedRoute = ({ children }) => {
+  const navigate = useNavigate();
+  
+  
+  const isAuthenticated = true;
+  
+  if (!isAuthenticated) {
+    navigate('/');
+    return null;
+  }
+  
+  return children;
+};
+
+const MainApp = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route 
+          path="/register" 
+          element={
+            <ProtectedRoute>
+              <RegistrationPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/restaurant-form" 
+          element={
+            <ProtectedRoute>
+              <RestaurantForm />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/foodbank-form" 
+          element={
+            <ProtectedRoute>
+              <FoodBankForm />
+            </ProtectedRoute>
+          } 
+        />
+      </Routes>
+    </Router>
+  );
+};
+
+export default MainApp;
