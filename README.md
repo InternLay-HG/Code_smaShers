@@ -6,6 +6,8 @@ MealConnect is a platform that bridges the gap between restaurants with surplus 
 
 MealConnect facilitates the efficient distribution of surplus food from restaurants to food banks and shelters through a user-friendly platform that manages the entire donation process.
 
+Figma File Link: https://www.figma.com/proto/wB0zwxBO5UgJGcJwopv7GQ/meal-connect-project?page-id=0%3A1&node-id=20-36&node-type=canvas&viewport=-1198%2C285%2C0.79&t=kTIL0liyZ1c7lSWA-1&scaling=min-zoom&content-scaling=fixed
+
 ### Key Features
 
 - **Real-time Food Donation Management**
@@ -141,6 +143,18 @@ MealConnect facilitates the efficient distribution of surplus food from restaura
 - Role-based access control
 - Regular security audits
 
+## Team Members
+- 1.Anish Rimil Barla (Lead) - Backend
+- 2.Mohit Raj - Frontend
+- 3.Ayansh Singh - Frontend
+- 4.Akash Verma - Backend
+- 5.Tarkeshwar Uraun- Backend
+- 6.Rishav Kindo - UI/UX Design
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
+
+
