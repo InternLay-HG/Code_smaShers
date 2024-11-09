@@ -6,6 +6,10 @@ import './App.css';
 import RegistrationPage from './components/RegistrationPage';
 import RestaurantForm from './components/RestaurantForm';
 import FoodBankForm from './components/FoodBankForm';
+import FoodHeroesPage from './components/FoodHeroesPage';
+import DontWasteFoodPage from './components/DontWasteFoodPage';
+import { Link } from 'react-router-dom';
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -28,7 +32,6 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      
       <nav className="border-b shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
@@ -41,10 +44,12 @@ const LoginPage = () => {
                 </span>
               </div>
               <div className="flex space-x-6">
-                <a href="#" className="hover:text-gray-600">Home</a>
-                <a href="#" className="hover:text-gray-600">Delivery</a>
-                <a href="#" className="hover:text-gray-600">About</a>
-                <a href="#" className="hover:text-gray-600">Contact</a>
+              <div className="flex space-x-6">
+                  <Link to="/food-heroes" className="hover:text-gray-600">Home</Link>
+                  <Link to="/delivery" className="hover:text-gray-600">Delivery</Link>
+                  <Link to="/about" className="hover:text-gray-600">About</Link>
+                  <Link to="/contact" className="hover:text-gray-600">Contact</Link>
+              </div>
               </div>
             </div>
             <div className="flex items-center space-x-6">
@@ -97,7 +102,6 @@ const LoginPage = () => {
               />
             </div>
           </div>
-
           <div className="bg-white p-8 rounded-3xl shadow-lg">
             <div className="mb-8 flex items-center">
               <Leaf className="w-5 h-5 text-green-500 mr-1" />
@@ -163,15 +167,13 @@ const LoginPage = () => {
 
 const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
-  
-  
   const isAuthenticated = true;
-  
+
   if (!isAuthenticated) {
     navigate('/');
     return null;
   }
-  
+
   return children;
 };
 
@@ -180,29 +182,45 @@ const MainApp = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route 
-          path="/register" 
+        <Route
+          path="/register"
           element={
             <ProtectedRoute>
               <RegistrationPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/restaurant-form" 
+        <Route
+          path="/restaurant-form"
           element={
             <ProtectedRoute>
               <RestaurantForm />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/foodbank-form" 
+        <Route
+          path="/foodbank-form"
           element={
             <ProtectedRoute>
               <FoodBankForm />
             </ProtectedRoute>
-          } 
+          }
+        />
+        <Route
+          path="/food-heroes"
+          element={
+            <ProtectedRoute>
+              <FoodHeroesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dont-waste-food"
+          element={
+            <ProtectedRoute>
+              <DontWasteFoodPage />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </Router>
