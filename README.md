@@ -12,6 +12,39 @@ Figma File Link: https://www.figma.com/proto/wB0zwxBO5UgJGcJwopv7GQ/meal-connect
 You can view the deployed version of the project here:
 
 [Live Demo](https://mealconnectproject.vercel.app/)
+## Login Instructions
+
+To log in to the application, use the following mock credentials:
+
+- **Username**: user@gmail.com
+- **Password**: password
+
+These are temporary credentials for testing purposes. The real credentials will be available once the backend is fully integrated.
+
+---
+
+## Registration Instructions
+
+### For Restaurant:
+
+To register a restaurant, use the following details:
+
+- **Name**: restaurant
+- **Address**: ranchi
+- **Email**: restaurant@gmail.com
+- **Password**: password
+
+### For Foodbank:
+
+To register a foodbank, use the following details:
+
+- **Name**: foodbank
+- **Address**: ranchi
+- **Email**: foodbank@gmail.com
+- **Password**: password
+
+These are mock credentials for testing purposes. The actual registration process will be available once the backend is fully functional.
+
 
 ### Key Features
 
