@@ -1,0 +1,5 @@
+username-akashiitverma
+password-GWUW2AaeswT7SCE9
+
+jwt_secret-
+8549979694a66f65cecf55f242ad65c053cbb6f0d0b06befd5f36f5e1147f5f59c21c9cdaf41e209f243ae10669aa6d61088e89ab0c2f37e47f1b3229c34f17f
