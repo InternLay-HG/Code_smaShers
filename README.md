@@ -21,7 +21,6 @@ To log in to the application, use the following mock credentials:
 
 These are temporary credentials for testing purposes. The real credentials will be available once the backend is fully integrated.
 
----
 
 ## Registration Instructions
 
