@@ -6,7 +6,7 @@ import './App.css';
 import RegistrationPage from './components/RegistrationPage';
 import RestaurantForm from './components/RestaurantForm';
 import FoodBankForm from './components/FoodBankForm';
-import FoodHeroesPage from './components/FoodHeroesPage';
+import HomePage from './components/HomePage';
 import DontWasteFoodPage from './components/DontWasteFoodPage';
 import { Link } from 'react-router-dom';
 
@@ -45,7 +45,7 @@ const LoginPage = () => {
               </div>
               <div className="flex space-x-6">
               <div className="flex space-x-6">
-                  <Link to="/food-heroes" className="hover:text-gray-600">Home</Link>
+                  <Link to="/home-page" className="hover:text-gray-600">Home</Link>
                   <Link to="/delivery" className="hover:text-gray-600">Delivery</Link>
                   <Link to="/about" className="hover:text-gray-600">About</Link>
                   <Link to="/contact" className="hover:text-gray-600">Contact</Link>
@@ -81,7 +81,7 @@ const LoginPage = () => {
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="rounded-3xl overflow-hidden">
                 <img
-                  src="/images/volunteersImage.jpg"
+                  src="/images/VolunteersImage.jpg"
                   alt="Volunteers packing food"
                   className="w-full h-full object-cover"
                 />
@@ -207,10 +207,10 @@ const MainApp = () => {
           }
         />
         <Route
-          path="/food-heroes"
+          path="/home-page"
           element={
             <ProtectedRoute>
-              <FoodHeroesPage />
+              <HomePage />
             </ProtectedRoute>
           }
         />
