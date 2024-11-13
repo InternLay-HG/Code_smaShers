@@ -34,7 +34,7 @@ const RegistrationPage = () => {
       setError('Please fill in all fields');
       return;
     }
-
+    
     
     if (userType === 'restaurant') {
       if (email === mockCredentials.restaurant.email && 
