@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Leaf } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -11,49 +12,37 @@ const RegistrationPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  
-  const mockCredentials = {
-    restaurant: {
-      name: 'restaurant',
-      email: 'restaurant@gmail.com',
-      password: 'password'
-    },
-    foodBank: {
-      name: 'foodbank',
-      email: 'foodbank@gmail.com',
-      password: 'password'
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    
     if (!name || !email || !password || !address) {
       setError('Please fill in all fields');
       return;
     }
-    
-    
-    if (userType === 'restaurant') {
-      if (email === mockCredentials.restaurant.email && 
-          password === mockCredentials.restaurant.password) {
-        navigate('/restaurant-form', { 
-          state: { name, address, email }
-        });
+
+    try {
+      const response = await axios.post('/api/auth/register', {
+        name,
+        email,
+        password,
+        role: userType,
+        address: {
+          street: address, // Assuming `address` includes street details
+          city: 'Your City', // Replace with actual city input if needed
+          state: 'Your State', // Replace with actual state input if needed
+          zip: '12345', // Replace with actual zip input if needed
+        }
+      });
+
+      // On successful registration, navigate based on userType
+      if (userType === 'restaurant') {
+        navigate('/restaurant-form', { state: { name, address, email } });
       } else {
-        setError('Invalid credentials. Use restaurant@gmail.com and password');
+        navigate('/foodbank-form', { state: { name, address, email } });
       }
-    } else {
-      if (email === mockCredentials.foodBank.email && 
-          password === mockCredentials.foodBank.password) {
-        navigate('/foodbank-form', {
-          state: { name, address, email }
-        });
-      } else {
-        setError('Invalid credentials. Use foodbank@gmail.com and password');
-      }
+    } catch (err) {
+      setError(err.response?.data?.msg || 'Registration failed');
     }
   };
 
