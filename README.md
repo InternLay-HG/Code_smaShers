@@ -1,196 +1,149 @@
-# MealConnect
+# 🍽️ MealConnect
 
-MealConnect is a platform that bridges the gap between restaurants with surplus food and local food banks/shelters, helping reduce food waste while addressing food insecurity in communities.
+MealConnect is a full-stack web platform that bridges the gap between restaurants with surplus food and local food banks/shelters, helping reduce food waste while addressing food insecurity in communities.
+
+---
+
+## 🚀 Live Demo
+
+🌐 Frontend: https://mealconnectproject.vercel.app  
+🔗 Backend API: https://meal-connect-updated.onrender.com  
+
+---
 
 ## 🎯 Project Overview
 
-MealConnect facilitates the efficient distribution of surplus food from restaurants to food banks and shelters through a user-friendly platform that manages the entire donation process.
+MealConnect enables restaurants to log surplus food inventory and allows food banks to claim available donations in real time. The platform manages authentication, role-based dashboards, donation tracking, and delivery coordination.
 
-Figma File Link: https://www.figma.com/proto/wB0zwxBO5UgJGcJwopv7GQ/meal-connect-project?page-id=0%3A1&node-id=20-36&node-type=canvas&viewport=-1198%2C285%2C0.79&t=kTIL0liyZ1c7lSWA-1&scaling=min-zoom&content-scaling=fixed
-## Deployed Project
+This is a fully integrated production deployment with live backend, database, and authentication system.
 
-You can view the deployed version of the project here:
+---
 
-[Live Demo](https://mealconnectproject.vercel.app/)
-## Login Instructions
+## 🔐 Authentication System
 
-To log in to the application, use the following mock credentials:
+- Secure user registration & login
+- JWT-based authentication
+- Role-based access control (Restaurant / Food Bank)
+- Protected routes
+- Encrypted password storage using bcrypt
+- MongoDB Atlas database integration
 
-- **Username**: user@gmail.com
-- **Password**: password
+---
 
-These are temporary credentials for testing purposes. The real credentials will be available once the backend is fully integrated.
+## 👤 User Roles
 
+### 🍴 Restaurant
+- Register & create profile
+- Log surplus food details
+- Track donation history
+- Monitor delivery status
 
-## Registration Instructions
+### 🏢 Food Bank
+- View available donations
+- Claim food donations
+- Track received donations
+- Manage profile & pickup coordination
 
-### For Restaurant:
-
-To register a restaurant, use the following details:
-
-- **Name**: restaurant
-- **Address**: ranchi
-- **Email**: restaurant@gmail.com
-- **Password**: password
-
-### For Foodbank:
-
-To register a foodbank, use the following details:
-
-- **Name**: foodbank
-- **Address**: ranchi
-- **Email**: foodbank@gmail.com
-- **Password**: password
-
-These are mock credentials for testing purposes. The actual registration process will be available once the backend is fully functional.
-
-
-### Key Features
-
-- **Real-time Food Donation Management**
-  - Restaurants can log surplus food inventory
-  - Food banks receive immediate notifications about available donations
-  - Live tracking of delivery partners
-
-- **Smart Location Matching**
-  - Automatic matching of restaurants with nearby food banks
-  - Optimized routing for food pickup and delivery
-  - Google Maps integration for real-time location tracking
-
-- **Dual Dashboard System**
-  - Restaurant Dashboard:
-    - Log surplus food details
-    - Track donation history
-    - Manage restaurant profile
-    - Monitor delivery status
-  
-  - Food Bank Dashboard:
-    - View available donations
-    - Track received donations
-    - Manage food bank profile
-    - Coordinate pickups
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-
-#### Web Application 
-- **Framework:** React.js
-- **Language:** JavaScript/TypeScript
-- **Styling:** CSS
-- **UI Components:** Material-UI
-- **Maps Integration:** Google Maps API
-- **Data Visualization:** D3.js, Chart.js
+- React.js
+- JavaScript
+- Tailwind CSS
+- React Router
+- Fetch API
+- Chart.js
+- Google Maps API
 
 ### Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication
+- bcrypt
+- CORS configured for production
+- Deployed on Render
 
-- **Framework:** Node.js with Express.js
-- **Databases:**
-  - MongoDB (NoSQL) - Primary database
-  - PostgreSQL/MySQL - Relational data
-- **Authentication:** Firebase Authentication
-- **APIs:** 
-  - Google Maps API
-  - Google Maps Distance Matrix API
+### Deployment
+- Frontend: Vercel
+- Backend: Render
+- Database: MongoDB Atlas
 
-### Analytics & Reporting
-- **Data Processing:**
-  - Apache Spark
-  - Google Analytics
-- **Dashboard Visualization:**
-  - D3.js
-  - Chart.js
-  - Tableau integration
+---
 
-### Communication & Notifications
-- **Push Notifications:** Firebase Cloud Messaging
-- **Email Services:** 
-  - SendGrid
-  - Amazon SES
+## 📊 Key Features
 
-## 💻 Technical Architecture
+- Full-stack authentication system
+- Real-time food donation workflow
+- Role-based dashboards
+- Surplus food tracking
+- Smart matching concept (extendable with geo-queries)
+- Production-ready API deployment
+- Secure CORS configuration
 
-### Database Structure
+---
 
-#### Restaurant Data
-- Restaurant name
-- Food items (surplus inventory)
-- Food quantity
-- Expiry dates
-- Location
-- Contact details
+## 🔄 Backend Workflow
 
-#### Food Bank Data
-- Food bank/shelter name
-- Location
-- Contact details
-- Capacity
-- Required food amounts
+1. Restaurant registers and logs surplus food.
+2. Data stored in MongoDB Atlas.
+3. Food banks can view and claim donations.
+4. JWT authentication secures user sessions.
+5. Role-based dashboard rendering.
 
-### Backend Workflow
-1. Restaurants input surplus food information
-2. System notifies nearby food banks
-3. Food banks can claim available donations
-4. Delivery partners are dispatched for pickup
-5. Real-time tracking of delivery progress
-6. Confirmation of successful donation
+---
 
-## 📱 User Interface
+## 🧪 Testing the Application
 
-### Login System
-- Separate login portals for:
-  - Restaurants
-  - Food Banks/Shelters
-- Role-based access control
-- Secure authentication
+You can register as:
+- Restaurant
+- Food Bank
 
-### Restaurant Interface
-- Dashboard displaying:
-  1. Surplus food inventory
-  2. Name of food items
-  3. Quantity tracking
-  4. Expiry date management
-  5. Location settings
-  6. Contact information
+Simply create a new account using the registration page.
 
-### Food Bank Interface
-- Dashboard showing:
-  1. Available donations
-  2. Donor restaurant details
-  3. Food quantities
-  4. Collection scheduling
-  5. Donation history
-  6. Impact metrics
+All authentication is handled via JWT and stored securely.
 
-## 📊 Analytics & Reporting
+---
 
-### Final Dashboard Features
-1. Date-wise donation tracking
-2. Restaurant donation details
-3. Quantity metrics
-4. Food item categorization
-5. Daily donation summaries
-6. Cumulative donation statistics
+## 🔒 Security Measures
 
-## 🔒 Security & Privacy
+- Password hashing with bcrypt
+- JWT token-based authentication
+- Secure API routing
+- Production-level CORS handling
+- Environment variable protection
 
-- Secure user authentication
-- Encrypted data transmission
-- Protected user information
-- Role-based access control
-- Regular security audits
+---
 
-## Team Members
-- 1.Anish Rimil Barla (Lead) - Backend
-- 2.Mohit Raj - Frontend
-- 3.Ayansh Singh - Frontend
-- 4.Akash Verma - Backend
-- 5.Tarkeshwar Uraun- Backend
-- 6.Rishav Kindo - UI/UX Design
+## 📈 Future Enhancements
+
+- Delivery partner module
+- Real-time notifications (Firebase)
+- Geo-based restaurant-foodbank matching
+- Admin dashboard
+- Analytics dashboard
+- Image upload for food items
+
+---
+
+## 👨‍💻 Team Members
+
+- Anish Rimil Barla – Backend Lead  
+- Mohit Raj – Frontend & Integration  
+- Ayansh Singh – Frontend  
+- Akash Verma – Backend  
+- Tarkeshwar Uraun – Backend  
+- Rishav Kindo – UI/UX Design  
+
+---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
+
 
 
 
